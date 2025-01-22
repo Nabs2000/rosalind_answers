@@ -13,3 +13,18 @@ def counting_dna_nucleotides(file):
             elif base == 'T':
                 t += 1
     return f'{a} {c} {g} {t}'
+
+def complementing_a_strand_of_dna(file):
+    with open(file, 'r') as f:
+        mappings = {'A': 'T',
+                    'T': 'A',
+                    'C': 'G',
+                    'G': 'C'}
+        dna_strand = f.readline()
+        print(dna_strand)
+        # Reverse
+        reversed_strand = dna_strand[::-1].replace('\n', '')
+        reverse_compl = ""
+        for base in reversed_strand:
+            reverse_compl += mappings[base]
+    return reverse_compl
